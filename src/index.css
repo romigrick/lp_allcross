@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background-color: #ffffff;
+    color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24, #d97706);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-navy-gradient {
+    background: linear-gradient(135deg, #000a5c 0%, #001490 40%, #0018b7 100%);
+  }
+
+  .bg-hero-pattern {
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(245, 158, 11, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+      linear-gradient(135deg, #000a5c 0%, #001490 50%, #000a5c 100%);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .gold-border {
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+
+  .section-divider {
+    background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.4), transparent);
+    height: 1px;
+  }
+}
+
+/* Scroll animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #001490;
+  border-radius: 3px;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Form input styles */
+.input-field {
+  @apply w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl font-body text-gray-800 placeholder-gray-400 transition-all duration-200;
+}
+
+.input-field:focus {
+  @apply outline-none border-amber-400 ring-4 ring-amber-50;
+}
+
+.input-field:hover {
+  @apply border-gray-300;
+}
+
+/* WhatsApp button pulse */
+.whatsapp-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.whatsapp-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+}
+
+.whatsapp-btn:hover::after {
+  width: 300px;
+  height: 300px;
+}
