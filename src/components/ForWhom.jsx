@@ -6,49 +6,49 @@ import { Users, Briefcase, Building2, Heart } from 'lucide-react'
 
 const segments = [
   {
-    icon: Users,
-    tag: 'Família',
-    title: 'Plano Familiar',
-    desc: 'Proteja seus filhos e cônjuge com cobertura completa. Comparamos planos que cabem no seu orçamento sem abrir mão da qualidade.',
-    highlight: 'Ideal para famílias com crianças',
-    color: 'from-blue-500 to-blue-700',
-    accent: 'blue',
+    icon: Heart,
+    tag: 'Sênior 60+',
+    title: 'MedSênior',
+    desc: 'Plano especializado para quem tem 60 anos ou mais. Cobertura completa, rede de qualidade e processo de contratação rápido e sem burocracia.',
+    highlight: 'Especializado para +60 anos',
+    color: 'from-emerald-500 to-emerald-700',
+    accent: 'emerald',
+    featured: true,
   },
   {
     icon: Briefcase,
-    tag: 'Autônomo / MEI',
+    tag: 'Autônomo / MEI (CNPJ)',
     title: 'Plano Empresarial MEI',
-    desc: 'Com CNPJ MEI você acessa planos coletivos até 45% mais em conta que planos individuais. Uma vantagem que poucos conhecem.',
+    desc: 'Com CNPJ MEI você acessa planos coletivos até 45% mais em conta. Contratação rápida, sem burocracia e sem taxa de adesão.',
     highlight: 'Até 45% mais econômico',
     color: 'from-amber-500 to-amber-700',
     accent: 'amber',
-    featured: true,
   },
   {
     icon: Building2,
     tag: 'Empresa (PME)',
     title: 'Plano Coletivo Empresarial',
-    desc: 'De 2 a 29 vidas. Benefício que atrai e retém talentos, com custo acessível e processo de contratação simples.',
+    desc: 'De 2 a 29 vidas. Benefício que atrai e retém talentos, com custo acessível e contratação simples e rápida.',
     highlight: 'De 2 a 29 colaboradores',
-    color: 'from-emerald-500 to-emerald-700',
-    accent: 'emerald',
+    color: 'from-blue-500 to-blue-700',
+    accent: 'blue',
   },
   {
-    icon: Heart,
-    tag: 'Sênior 60+',
-    title: 'MedSênior',
-    desc: 'Plano especializado para quem tem 60 anos ou mais. Cobertura completa com rede de qualidade e preço justo para a melhor fase da vida.',
-    highlight: 'Especializado para +60 anos',
+    icon: Users,
+    tag: 'Família',
+    title: 'Plano Familiar',
+    desc: 'Proteja sua família com cobertura completa. Comparamos planos que cabem no seu orçamento sem abrir mão da qualidade.',
+    highlight: 'Ideal para famílias com crianças',
     color: 'from-rose-500 to-rose-700',
     accent: 'rose',
   },
 ]
 
 const accentColors = {
-  blue: 'bg-blue-50 text-blue-700 border-blue-200',
-  amber: 'bg-amber-50 text-amber-700 border-amber-200',
+  blue:    'bg-blue-50 text-blue-700 border-blue-200',
+  amber:   'bg-amber-50 text-amber-700 border-amber-200',
   emerald: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-  rose: 'bg-rose-50 text-rose-700 border-rose-200',
+  rose:    'bg-rose-50 text-rose-700 border-rose-200',
 }
 
 export default function ForWhom() {
@@ -61,16 +61,16 @@ export default function ForWhom() {
           <span className="inline-block text-amber-600 font-body text-sm font-semibold uppercase tracking-widest mb-3">
             Para quem é
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl text-navy-900 mb-4">
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-navy-900 mb-4">
             O plano certo para{' '}
             <em className="not-italic text-amber-500">cada situação</em>
           </h2>
-          <p className="text-gray-500 font-body text-lg max-w-xl mx-auto">
+          <p className="text-gray-500 font-body text-xl max-w-xl mx-auto">
             Não importa o seu perfil — temos especialistas prontos para encontrar a melhor solução para você.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {segments.map((seg, i) => {
             const Icon = seg.icon
             return (
@@ -78,40 +78,43 @@ export default function ForWhom() {
                 key={seg.tag}
                 className={`reveal reveal-delay-${i + 1} ${visible ? 'visible' : ''} relative group flex flex-col rounded-3xl overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
                   seg.featured
-                    ? 'border-amber-300 shadow-xl shadow-amber-100'
+                    ? 'border-emerald-300 shadow-xl shadow-emerald-100 ring-2 ring-emerald-400/30'
                     : 'border-gray-100 shadow-md'
                 }`}
               >
-                {seg.featured && (
-                  <div className="bg-amber-500 text-white text-xs font-body font-semibold text-center py-1.5 px-4 uppercase tracking-widest">
-                    ⭐ Mais popular
+                {/* Gradient header — altura fixa igual para todos os cards */}
+                <div className={`relative bg-gradient-to-br ${seg.color} px-6 pb-6 flex flex-col justify-between`} style={{height: '176px', paddingTop: seg.featured ? '2.25rem' : '1.5rem'}}>
+                  {seg.featured && (
+                    <div className="absolute top-0 left-0 right-0 bg-black/20 text-white text-xs font-body font-semibold text-center py-1.5 uppercase tracking-widest">
+                      ⭐ Mais vendido
+                    </div>
+                  )}
+                  <div className="w-11 h-11 rounded-2xl bg-white/20 flex items-center justify-center">
+                    <Icon size={22} className="text-white" strokeWidth={1.5} />
                   </div>
-                )}
-                {/* Gradient header */}
-                <div className={`bg-gradient-to-br ${seg.color} p-6`}>
-                  <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center mb-4">
-                    <Icon size={24} className="text-white" strokeWidth={1.5} />
+                  <div>
+                    <span className="text-white/70 text-xs font-body uppercase tracking-widest block mb-1">{seg.tag}</span>
+                    <h3 className="text-white font-display text-2xl font-semibold leading-tight">{seg.title}</h3>
                   </div>
-                  <span className="text-white/70 text-xs font-body uppercase tracking-widest">{seg.tag}</span>
-                  <h3 className="text-white font-display text-xl font-semibold mt-1">{seg.title}</h3>
                 </div>
+
                 {/* Body */}
-                <div className="flex-1 flex flex-col p-6 bg-white">
-                  <p className="text-gray-600 font-body text-sm leading-relaxed mb-4 flex-1">
+                <div className="flex-1 flex flex-col px-6 pt-6 pb-6 bg-white">
+                  <p className="text-gray-600 font-body text-sm leading-relaxed mb-5 flex-1">
                     {seg.desc}
                   </p>
-                  <div className={`inline-flex items-center gap-1.5 text-xs font-body font-semibold px-3 py-1.5 rounded-full border ${accentColors[seg.accent]} mb-5`}>
+                  <div className={`inline-flex items-center gap-1.5 text-xs font-body font-semibold px-3 py-2 rounded-full border ${accentColors[seg.accent]} mb-4`}>
                     <span>✓</span> {seg.highlight}
                   </div>
                   <button
                     onClick={() => openConsultantWA()}
-                    className={`w-full text-center font-body font-semibold text-sm py-3 rounded-xl transition-all duration-200 ${
+                    className={`w-full text-center font-body font-semibold text-sm py-3.5 rounded-xl transition-all duration-200 ${
                       seg.featured
-                        ? 'bg-amber-500 hover:bg-amber-400 text-white shadow-lg shadow-amber-200'
+                        ? 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-md shadow-emerald-200'
                         : 'bg-navy-900 hover:bg-navy-800 text-white'
                     }`}
                   >
-                    Quero uma cotação
+                    Quero uma cotação rápida
                   </button>
                 </div>
               </div>

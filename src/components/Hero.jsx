@@ -3,8 +3,8 @@ import { Shield, ChevronDown, Star, CheckCircle2 } from 'lucide-react'
 import { openConsultantWA } from '../utils/openWA'
 
 const operadoras = [
-  'Unimed', 'MedSênior', 'Amil', 'Bradesco Saúde',
-  'Sul América', 'Hapvida', 'Notre Dame', 'Paraná Clínicas'
+  'MedSênior', 'Unimed', 'Amil', 'Bradesco Saúde',
+  'Sul América', 'Hapvida/Clinipam', 'Select', 'Paraná Clínicas'
 ]
 
 export default function Hero() {
@@ -20,13 +20,13 @@ export default function Hero() {
     <section className="relative min-h-screen bg-hero-pattern flex flex-col justify-center overflow-hidden">
       {/* Background geometric shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 right-0 w-96 h-96 rounded-full bg-amber-500/5 blur-3xl" />
+        <div className="absolute top-1/4 right-0 w-96 h-96 rounded-full bg-[#C9A84C]/5 blur-3xl" />
         <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-blue-600/8 blur-3xl" />
         {/* Diagonal line accent */}
         <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-amber-400/20 to-transparent" />
         {/* Grid pattern overlay */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.07]"
           style={{
             backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
               linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
@@ -45,15 +45,15 @@ export default function Hero() {
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              <Shield size={14} className="text-amber-400" />
-              <span className="text-amber-400/90 font-body text-xs font-medium tracking-widest uppercase">
+              <Shield size={14} className="text-[#C9A84C]" />
+              <span className="text-[#C9A84C]/90 font-body text-xs font-medium tracking-widest uppercase">
                 22 anos protegendo famílias
               </span>
             </div>
 
             {/* Main headline */}
             <h1
-              className={`font-display text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 transition-all duration-700 delay-150 ${
+              className={`font-display text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] mb-6 transition-all duration-700 delay-150 ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
             >
@@ -65,12 +65,13 @@ export default function Hero() {
 
             {/* Sub headline */}
             <p
-              className={`font-body text-white/70 text-lg sm:text-xl leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 transition-all duration-700 delay-300 ${
+              className={`font-body text-white/70 text-xl sm:text-2xl leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 transition-all duration-700 delay-300 ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              Receba uma cotação gratuita e descubra a melhor opção entre
-              as principais operadoras em minutos. Sem compromisso.
+              Cotação gratuita em minutos —{' '}
+              <span className="text-white font-semibold">rápido, sem burocracia</span>{' '}
+              e sem compromisso.
             </p>
 
             {/* Trust signals */}
@@ -80,7 +81,8 @@ export default function Hero() {
               }`}
             >
               {[
-                '✓ Cotação gratuita',
+                '⚡ Rápido e sem burocracia',
+                '✓ Cotação 100% gratuita',
                 '✓ Até 10 operadoras',
                 '✓ Retorno em até 1h',
               ].map((item) => (
@@ -101,7 +103,7 @@ export default function Hero() {
             >
               <button
                 onClick={openConsultantWA}
-                className="whatsapp-btn group inline-flex items-center justify-center gap-3 bg-amber-500 hover:bg-amber-400 text-white font-body font-semibold text-lg px-8 py-4 rounded-2xl transition-all duration-300 shadow-xl shadow-amber-600/30 hover:shadow-amber-400/50 hover:-translate-y-1 animate-pulse-gold"
+                className="whatsapp-btn group inline-flex items-center justify-center gap-3 bg-[#C9A84C] hover:bg-[#DDB96A] text-white font-body font-semibold text-lg px-8 py-4 rounded-2xl transition-all duration-300 shadow-xl shadow-[#B8923A]/30 hover:shadow-[#C9A84C]/40 hover:-translate-y-1 animate-pulse-gold"
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -136,7 +138,7 @@ export default function Hero() {
               <div>
                 <div className="flex items-center gap-1 mb-0.5">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={12} fill="#f59e0b" className="text-amber-400" />
+                    <Star key={i} size={12} fill="#f59e0b" className="text-[#C9A84C]" />
                   ))}
                 </div>
                 <p className="text-white/60 text-xs font-body">+230 mil vidas atendidas</p>
@@ -158,16 +160,27 @@ export default function Hero() {
                 {operadoras.map((op, i) => (
                   <div
                     key={op}
-                    className="bg-white/10 hover:bg-white/15 rounded-xl px-4 py-3 text-center transition-all duration-200 cursor-default"
+                    className={`relative rounded-xl px-4 py-3 text-center transition-all duration-200 cursor-default ${
+                      op === 'MedSênior'
+                        ? 'bg-emerald-500/25 border border-emerald-400/50 ring-1 ring-emerald-400/30'
+                        : 'bg-white/10 hover:bg-white/15'
+                    }`}
                     style={{ animationDelay: `${i * 50}ms` }}
                   >
-                    <span className="text-white font-body font-medium text-sm">{op}</span>
+                    {op === 'MedSênior' && (
+                      <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-emerald-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider whitespace-nowrap">
+                        Destaque
+                      </span>
+                    )}
+                    <span className={`font-body font-medium text-sm ${op === 'MedSênior' ? 'text-emerald-300 font-semibold' : 'text-white'}`}>
+                      {op}
+                    </span>
                   </div>
                 ))}
               </div>
               {/* Value proposition card */}
-              <div className="bg-amber-500/15 border border-amber-400/30 rounded-2xl p-5 text-center">
-                <p className="text-amber-300 font-body text-xs uppercase tracking-widest mb-1">Planos a partir de</p>
+              <div className="bg-[#C9A84C]/15 border border-[#C9A84C]/30 rounded-2xl p-5 text-center">
+                <p className="text-[#E8C97A] font-body text-xs uppercase tracking-widest mb-1">Planos a partir de</p>
                 <p className="text-white font-display text-4xl font-bold">
                   R$ 96<span className="text-lg text-white/60 font-body font-normal">/mês</span>
                 </p>
@@ -176,7 +189,7 @@ export default function Hero() {
             </div>
 
             {/* Floating badge */}
-            <div className="absolute -top-4 -right-4 bg-amber-500 text-white rounded-2xl px-4 py-3 shadow-xl shadow-amber-600/30 animate-float">
+            <div className="absolute -top-4 -right-4 bg-[#C9A84C] text-white rounded-2xl px-4 py-3 shadow-xl shadow-[#B8923A]/30 animate-float">
               <p className="text-xs font-body font-medium leading-none mb-0.5">Comparamos até</p>
               <p className="text-2xl font-display font-bold leading-none">10</p>
               <p className="text-xs font-body font-medium leading-none">operadoras</p>

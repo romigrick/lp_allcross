@@ -22,7 +22,7 @@
 
 @layer utilities {
   .text-gradient-gold {
-    background: linear-gradient(135deg, #f59e0b, #fbbf24, #d97706);
+    background: linear-gradient(135deg, #C9A84C, #E8C97A, #B8923A);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -34,7 +34,7 @@
 
   .bg-hero-pattern {
     background-image:
-      radial-gradient(ellipse at 20% 50%, rgba(245, 158, 11, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 50%, rgba(184, 146, 58, 0.08) 0%, transparent 60%),
       radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
       linear-gradient(135deg, #000a5c 0%, #001490 50%, #000a5c 100%);
   }
@@ -46,7 +46,7 @@
   }
 
   .gold-border {
-    border: 1px solid rgba(245, 158, 11, 0.3);
+    border: 1px solid rgba(184, 146, 58, 0.35);
   }
 
   .section-divider {

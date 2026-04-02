@@ -35,12 +35,12 @@ export default function HowItWorks() {
     <section className="py-20 bg-gray-50" ref={ref} id="como-funciona">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className={`text-center mb-16 reveal ${visible ? 'visible' : ''}`}>
-          <span className="inline-block text-amber-600 font-body text-sm font-semibold uppercase tracking-widest mb-3">
+          <span className="inline-block text-[#B8923A] font-body text-sm font-semibold uppercase tracking-widest mb-3">
             Como funciona
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl text-navy-900 mb-4">
-            Da cotação à proteção,{' '}
-            <em className="not-italic text-amber-500">em minutos</em>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-navy-900 mb-4">
+            Rápido, sem burocracia:{' '}
+            <em className="not-italic text-[#C9A84C]">em minutos</em>
           </h2>
           <p className="text-gray-500 font-body text-lg max-w-xl mx-auto">
             Um processo simples, transparente e sem surpresas. Você toma a melhor decisão com todas as informações na mão.
@@ -61,9 +61,9 @@ export default function HowItWorks() {
                 >
                   <div className="relative mb-6">
                     <div className="w-16 h-16 rounded-2xl bg-navy-gradient flex items-center justify-center shadow-xl shadow-navy-900/20">
-                      <Icon size={26} className="text-amber-400" strokeWidth={1.5} />
+                      <Icon size={26} className="text-[#C9A84C]" strokeWidth={1.5} />
                     </div>
-                    <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-amber-500 text-white text-xs font-body font-bold flex items-center justify-center">
+                    <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[#C9A84C] text-white text-xs font-body font-bold flex items-center justify-center">
                       {i + 1}
                     </span>
                   </div>

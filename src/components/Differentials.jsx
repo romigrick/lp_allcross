@@ -41,12 +41,12 @@ export default function Differentials() {
     <section className="py-20 bg-gray-50" ref={ref} id="diferenciais">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className={`text-center mb-16 reveal ${visible ? 'visible' : ''}`}>
-          <span className="inline-block text-amber-600 font-body text-sm font-semibold uppercase tracking-widest mb-3">
+          <span className="inline-block text-[#B8923A] font-body text-sm font-semibold uppercase tracking-widest mb-3">
             Por que a AllCross
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl text-navy-900 mb-4">
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-navy-900 mb-4">
             A escolha de quem quer{' '}
-            <em className="not-italic text-amber-500">segurança de verdade</em>
+            <em className="not-italic text-[#C9A84C]">segurança de verdade</em>
           </h2>
           <p className="text-gray-500 font-body text-lg max-w-xl mx-auto">
             Não somos uma corretora qualquer. Somos um parceiro estratégico que analisa, compara e encontra o melhor custo-benefício para você.
@@ -65,7 +65,7 @@ export default function Differentials() {
                   <Icon
                     size={22}
                     strokeWidth={1.5}
-                    className="text-navy-700 group-hover:text-amber-400 transition-colors duration-300"
+                    className="text-navy-700 group-hover:text-[#C9A84C] transition-colors duration-300"
                   />
                 </div>
                 <h3 className="font-display text-lg font-semibold text-navy-900 mb-2 leading-snug">

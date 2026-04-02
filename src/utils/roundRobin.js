@@ -83,25 +83,34 @@ export async function getNextConsultant() {
 }
 
 // ── Monta URL do WhatsApp ────────────────────────────────────────────────────
-export function buildWhatsAppURL(consultant, formData) {
-  const planLabels = {
-    individual:   'Individual',
-    familiar:     'Familiar (2 ou mais pessoas)',
-    mei:          'Empresarial — MEI',
-    empresarial:  'Empresarial — PME (2 a 29 vidas)',
-    senior:       'MedSênior (60+ anos)',
+export function buildWhatsAppURL(consultant, formData = {}) {
+  
+  // --- MENSAGEM PARA BOTÃO (Quando não preencheu o formulário) ---
+  if (!formData.name || formData.name.trim() === '') {
+    const defaultMessage = `Olá! Gostaria de saber mais os planos de saúde!`
+    return `https://wa.me/${consultant.phone}?text=${encodeURIComponent(defaultMessage)}`
   }
 
+  // --- MENSAGEM PARA FORMULÁRIO (Quando o lead preencheu os dados) ---
+  const planLabels = {
+    individual:   'Plano Individual',
+    familiar:     'Plano Familiar',
+    mei:          'Plano Empresarial — MEI',
+    empresarial:  'Plano Empresarial — PME',
+    senior:       'Plano MedSênior (60+ anos)',
+  }
+
+  const selectedPlan = planLabels[formData.planType] || 'um de seus planos'
+
   const lines = [
-    `🔔 *Novo lead — AllCross*`,
+    `Olá! Meu nome é ${formData.name}.`,
+    `Gostaria de mais informações sobre o *${selectedPlan}*.`,
     ``,
-    formData.name  ? `*Nome:* ${formData.name}`   : null,
-    formData.phone ? `*WhatsApp:* ${formData.phone}` : null,
-    formData.city  ? `*Cidade:* ${formData.city}`  : null,
-    `*Tipo de plano:* ${planLabels[formData.planType] || formData.planType || 'Não informado'}`,
-    formData.message ? `*Observações:* ${formData.message}` : null,
+    `Sou de`,
+    formData.city ? `${formData.city}` : null,
+    formData.message ? `\n*Dúvida/Observação:* ${formData.message}` : null,
     ``,
-    `_Lead recebido via Landing Page AllCross_`,
+    `Fico no aguardo do contato!`
   ].filter(Boolean).join('\n')
 
   return `https://wa.me/${consultant.phone}?text=${encodeURIComponent(lines)}`

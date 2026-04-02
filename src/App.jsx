@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import TrustBar from './components/TrustBar'
 import HowItWorks from './components/HowItWorks'
 import ForWhom from './components/ForWhom'
+import HumanSection from './components/HumanSection'
 import Differentials from './components/Differentials'
 import LeadForm from './components/LeadForm'
 import FAQ from './components/FAQ'
@@ -18,6 +19,7 @@ export default function App() {
         <TrustBar />
         <HowItWorks />
         <ForWhom />
+        <HumanSection />
         <Differentials />
         <LeadForm />
         <FAQ />

@@ -34,7 +34,7 @@ function FaqItem({ faq, isOpen, onToggle }) {
         const parts = content.split(/\*\*(.*?)\*\*/g)
         return (
           <p key={i} className="flex gap-2 text-gray-600 text-sm leading-relaxed mb-1">
-            <span className="text-amber-500 font-bold mt-0.5 flex-shrink-0">•</span>
+            <span className="text-[#C9A84C] font-bold mt-0.5 flex-shrink-0">•</span>
             <span>{parts.map((p, j) => j % 2 === 1 ? <strong key={j} className="text-navy-800 font-semibold">{p}</strong> : p)}</span>
           </p>
         )
@@ -60,7 +60,7 @@ function FaqItem({ faq, isOpen, onToggle }) {
         </span>
         <ChevronDown
           size={20}
-          className={`text-amber-500 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+          className={`text-[#C9A84C] flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
         />
       </button>
       <div
@@ -86,12 +86,12 @@ export default function FAQ() {
     <section className="py-20 bg-white" ref={ref} id="faq">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <div className={`text-center mb-14 reveal ${visible ? 'visible' : ''}`}>
-          <span className="inline-block text-amber-600 font-body text-sm font-semibold uppercase tracking-widest mb-3">
+          <span className="inline-block text-[#B8923A] font-body text-sm font-semibold uppercase tracking-widest mb-3">
             Dúvidas frequentes
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl text-navy-900 mb-4">
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-navy-900 mb-4">
             Perguntas antes de{' '}
-            <em className="not-italic text-amber-500">contratar</em>
+            <em className="not-italic text-[#C9A84C]">contratar</em>
           </h2>
           <p className="text-gray-500 font-body text-lg">
             Respondemos as principais dúvidas para você tomar uma decisão com segurança.

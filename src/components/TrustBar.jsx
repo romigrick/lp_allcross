@@ -20,14 +20,14 @@ export default function TrustBar() {
               className={`text-center reveal reveal-delay-${i + 1} ${visible ? 'visible' : ''}`}
             >
               <div className="mb-2">
-                <span className="font-display text-4xl font-bold text-navy-900">
+                <span className="font-display text-5xl font-bold text-navy-900">
                   {stat.value}
                 </span>
-                <span className="font-display text-2xl font-bold text-amber-500">
+                <span className="font-display text-2xl font-bold text-[#C9A84C]">
                   {stat.suffix}
                 </span>
               </div>
-              <p className="text-gray-500 text-sm font-body leading-snug">{stat.label}</p>
+              <p className="text-gray-500 text-base font-body leading-snug">{stat.label}</p>
             </div>
           ))}
         </div>
