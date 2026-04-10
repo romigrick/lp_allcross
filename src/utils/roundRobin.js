@@ -9,9 +9,8 @@
  */
 
 // ─── Credenciais Supabase ────────────────────────────────────────────────────
-const SUPABASE_URL = 'https://esmkhhpmrdvgmsfwszuq.supabase.co'
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzbWtoaHBtcmR2Z21zZndzenVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0Mzc2NDEsImV4cCI6MjA4OTAxMzY0MX0.V0_Fu7_PhrNYT2mYNwaSljwd4CcQfk2gvNqFpoC9XeI'
-// ─────────────────────────────────────────────────────────────────────────────
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 export const CONSULTANTS = [
   { name: 'Suellen Correa',  phone: '5541998460353' },
@@ -84,33 +83,40 @@ export async function getNextConsultant() {
 
 // ── Monta URL do WhatsApp ────────────────────────────────────────────────────
 export function buildWhatsAppURL(consultant, formData = {}) {
-  
-  // --- MENSAGEM PARA BOTÃO (Quando não preencheu o formulário) ---
-  if (!formData.name || formData.name.trim() === '') {
-    const defaultMessage = `Olá! Gostaria de saber mais os planos de saúde!`
-    return `https://wa.me/${consultant.phone}?text=${encodeURIComponent(defaultMessage)}`
+
+  const isButton = !formData.name || formData.name.trim() === '' || formData.name === 'Botão'
+
+  // --- MENSAGEM PARA BOTÃO ---
+  if (isButton) {
+    const msg = `Olá! Vi a página da AllCross e gostaria de receber uma cotação de plano de saúde.`
+    return `https://wa.me/${consultant.phone}?text=${encodeURIComponent(msg)}`
   }
 
-  // --- MENSAGEM PARA FORMULÁRIO (Quando o lead preencheu os dados) ---
+  // --- MENSAGEM PARA FORMULÁRIO ---
   const planLabels = {
-    individual:   'Plano Individual',
-    familiar:     'Plano Familiar',
-    mei:          'Plano Empresarial — MEI',
-    empresarial:  'Plano Empresarial — PME',
-    senior:       'Plano MedSênior (60+ anos)',
+    individual:  'Plano Individual',
+    familiar:    'Plano Familiar',
+    mei:         'Plano Empresarial — MEI (CNPJ)',
+    empresarial: 'Plano Empresarial — PME (2 a 29 vidas)',
+    senior:      'Plano MedSênior (60+ anos)',
   }
 
-  const selectedPlan = planLabels[formData.planType] || 'um de seus planos'
+  const plano      = planLabels[formData.planType] || 'Plano de saúde'
+  const pessoas    = formData.pessoas    ? `*Nº de pessoas:* ${formData.pessoas}` : null
+  const tipoPessoa = formData.tipoPessoa ? `*Pessoa:* ${formData.tipoPessoa}` : null
+  const cidade     = formData.city       ? `*Cidade:* ${formData.city}` : null
+  const obs        = formData.message    ? `*Observações:* ${formData.message}` : null
 
   const lines = [
-    `Olá! Meu nome é ${formData.name}.`,
-    `Gostaria de mais informações sobre o *${selectedPlan}*.`,
+    `Olá! Meu nome é *${formData.name}*.`,
+    `Gostaria de receber uma cotação do *${plano}*.`,
     ``,
-    `Sou de`,
-    formData.city ? `${formData.city}` : null,
-    formData.message ? `\n*Dúvida/Observação:* ${formData.message}` : null,
+    cidade,
+    pessoas,
+    tipoPessoa,
+    obs,
     ``,
-    `Fico no aguardo do contato!`
+    `Fico no aguardo! 😊`,
   ].filter(Boolean).join('\n')
 
   return `https://wa.me/${consultant.phone}?text=${encodeURIComponent(lines)}`
